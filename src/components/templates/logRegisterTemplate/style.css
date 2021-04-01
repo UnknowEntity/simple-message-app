@@ -1,0 +1,42 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.input-field input {
+    margin-bottom: 10px;
+}
+
+.center-struct {
+    width: 30vw;
+    padding-top: 5vh;
+    margin: auto;
+}
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-group button {
+    margin-bottom: 10px;
+}
+
+.button-group div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.login-register-frame {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(245, 245, 245);
+}
