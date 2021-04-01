@@ -1,0 +1,41 @@
+#circle-group circle {
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(4, start);
+}
+
+@keyframes blink {
+
+    0%,
+    25% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    25%,
+    50% {
+        transform: scale(1.3);
+        opacity: 0.5;
+    }
+
+    50%,
+    75% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    75%,
+    80% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+#circle-second {
+    animation-delay: 0.25s;
+}
+
+#circle-third {
+    animation-delay: 0.5s;
+}
