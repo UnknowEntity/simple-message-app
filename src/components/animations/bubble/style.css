@@ -1,0 +1,66 @@
+#bubbles circle {
+    transition: transform 1s ease;
+}
+
+#bubble-large {
+    animation-name: bloom-large;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+
+
+#bubble-small {
+    animation-name: bloom-small;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+}
+
+#bubble-medium {
+    animation-name: bubbling;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-direction: alternate;
+}
+
+@keyframes bubbling {
+    from {
+        transform: translateY(-10%);
+    }
+
+    to {
+        transform: translateY(10%);
+    }
+}
+
+@keyframes bloom-small {
+    from {
+        transform: scale(0, 0);
+    }
+
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+
+@keyframes bloom-large {
+    from {
+        transform: scale(0, 0);
+    }
+
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+#bubble-large:hover {
+    transform: translateY(10%);
+}
+
+
+#bubble-small:hover {
+    transform: translateX(-10%);
+}

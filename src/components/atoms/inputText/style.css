@@ -1,0 +1,32 @@
+input.text {
+    border-radius: 4px;
+    border-color: lightgray;
+    border-width: 2px;
+    border-style: solid;
+    transition: border-color 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+input.text:focus {
+    border-color: rgb(185, 27, 233);
+}
+
+input.text.small {
+    font-size: small;
+}
+
+input.text.medium {
+    font-size: medium;
+}
+
+input.text.large {
+    font-size: large;
+}
+
+input.text.center {
+    text-align: center;
+}
