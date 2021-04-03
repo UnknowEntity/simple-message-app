@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./loginPage";
+import RecentMessagePage from "./recentMessagePage";
 import RegisterPage from "./registerPage";
 import TestPage from "./testPage";
 
@@ -16,6 +17,9 @@ const App = () => {
         </Route>
         <Route exact path="/test">
           <TestPage />
+        </Route>
+        <Route path="/message">
+          <RecentMessagePage />
         </Route>
       </Switch>
     </Router>

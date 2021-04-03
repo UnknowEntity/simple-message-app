@@ -1,0 +1,10 @@
+.message-frame {
+    height: 93%;
+    margin-top: 5px;
+}
+
+.message-frame textarea {
+    margin-top: 10px;
+    width: 100%;
+    height: 5%;
+}

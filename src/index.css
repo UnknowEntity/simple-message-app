@@ -2,3 +2,19 @@ body {
     display: block;
     margin: 0;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(245, 245, 245);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(240, 156, 243);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(132, 65, 138);
+}

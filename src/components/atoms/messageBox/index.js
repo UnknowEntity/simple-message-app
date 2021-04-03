@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Moment from "moment";
 import TypingAnimation from "../../animations/typing";
 import "./style.css";
 
@@ -19,7 +20,9 @@ const MessageBox = (props) => {
   return (
     <div className={`message-box ${type}`} key={key}>
       <div className={`message-content ${type}`}>{message}</div>
-      <div className={`message-date ${type}`}>{isTyping ? "" : date}</div>
+      <div className={`message-date ${type}`}>
+        {isTyping ? "" : Moment(date).format("h:mm:ss A, dddd D/M/YYYY")}
+      </div>
     </div>
   );
 };

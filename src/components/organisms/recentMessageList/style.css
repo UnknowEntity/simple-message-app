@@ -1,4 +1,12 @@
 .recent-message-list {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.recent-message-list a {
+    margin-bottom: 5px;
 }
