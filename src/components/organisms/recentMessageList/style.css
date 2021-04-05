@@ -10,3 +10,23 @@
 .recent-message-list a {
     margin-bottom: 5px;
 }
+
+.recent-message-search-bar {
+    margin-bottom: 10px;
+    align-self: center;
+    position: relative;
+}
+
+.recent-message-search-bar input {
+    width: 21vw;
+    height: 2rem;
+    border-radius: 20px;
+    padding-left: 35px;
+}
+
+.recent-message-search-bar svg {
+    position: absolute;
+    margin-left: 0.7rem;
+    margin-top: 0.8rem;
+    color: rgb(99, 99, 99);
+}

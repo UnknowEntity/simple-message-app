@@ -8,6 +8,10 @@ a.recent-message {
     height: 55px;
 }
 
+a.recent-message.hide {
+    display: none;
+}
+
 a.recent-message .avatar {
     margin-right: 10px;
     margin-left: 3px;

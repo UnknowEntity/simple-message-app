@@ -15,15 +15,18 @@ import "./style.css";
  * unread:boolean
  * sender:string
  * date:number},
- * choose: boolean}} props
+ * choose: boolean,
+ * searchKeyWord:string}} props
  * @returns
  */
 const RecentMessage = (props) => {
-  const { person, lastMessage, choose } = props;
+  const { person, lastMessage, choose, searchKeyWord } = props;
+  let isHide =
+    person.name.toLowerCase().search(searchKeyWord) === -1 ? "hide" : "";
   return (
     <LinkModified
       url={`/p/${person.id}`}
-      className={`recent-message ${choose ? "choose" : ""}`}
+      className={`recent-message ${choose ? "choose" : ""} ${isHide}`}
     >
       <Avatar
         name={person.name}

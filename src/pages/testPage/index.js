@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-import MessageFrame from "../../components/organisms/messageFrame";
+import React, { useEffect, useState } from "react";
 
 const TestPage = (prop) => {
-  const [messageList, setMessageList] = useState([
-    { content: "yo wanna come over", date: Date.now(), type: "other" },
-  ]);
-  const updateMessageList = () => {};
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:3000/users/private", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setMessage(res.message);
+      });
+  }, []);
 
-  return (
-    <div>
-      <MessageFrame
-        messageList={messageList}
-        setMessageList={setMessageList}
-        updateMessageList={updateMessageList}
-      />
-    </div>
-  );
+  return <div>{message}</div>;
 };
 
 export default TestPage;
