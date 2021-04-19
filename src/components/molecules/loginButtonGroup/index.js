@@ -5,14 +5,18 @@ import LinkModified from "../../atoms/links";
 
 /**
  *
- * @param {{onLogin:Function}} props
+ * @param {{onLogin:Function, isClicked: boolean}} props
  * @returns
  */
 const LoginButtonGroup = (props) => {
-  const { onLogin } = props;
+  const { onLogin, isClicked } = props;
   return (
     <>
-      <Button size={ButtonSize.LARGE} onClick={() => onLogin()}>
+      <Button
+        size={ButtonSize.LARGE}
+        onClick={() => onLogin()}
+        disabled={isClicked}
+      >
         Log In
       </Button>
       <div>Don't have an account? Then</div>
@@ -25,6 +29,7 @@ const LoginButtonGroup = (props) => {
 
 LoginButtonGroup.propTypes = {
   onRegister: PropTypes.func,
+  isClicked: PropTypes.bool,
 };
 
 export default LoginButtonGroup;

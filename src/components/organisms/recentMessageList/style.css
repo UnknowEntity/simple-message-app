@@ -1,11 +1,24 @@
 .recent-message-list {
+    height: 100%;
+}
+
+.recent-message-list button {
+    display: none;
+}
+
+.recent-message-part {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    transition: height 200ms ease;
+}
+
+.recent-message-part .recent-message-scroll {
     overflow-y: scroll;
     height: 100%;
-    padding-left: 10px;
     padding-right: 10px;
 }
+
 
 .recent-message-list a {
     margin-bottom: 5px;
@@ -15,10 +28,11 @@
     margin-bottom: 10px;
     align-self: center;
     position: relative;
+    width: 80%;
 }
 
 .recent-message-search-bar input {
-    width: 21vw;
+    width: calc(100% - 41px);
     height: 2rem;
     border-radius: 20px;
     padding-left: 35px;
@@ -29,4 +43,26 @@
     margin-left: 0.7rem;
     margin-top: 0.8rem;
     color: rgb(99, 99, 99);
+}
+
+@media screen and (max-width:600px) {
+    .recent-message-list button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .recent-message-part {
+        position: relative;
+        display: none;
+        z-index: 1;
+        transition: height 200ms ease;
+        height: 0px;
+    }
+
+    .recent-message-part.show {
+        display: flex;
+        z-index: 1;
+        height: 300px;
+    }
 }

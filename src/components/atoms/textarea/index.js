@@ -9,11 +9,12 @@ import "./style.css";
  * onChange: Function,
  * enter: boolean,
  * enterEvent: Function,
- * size: string}} props
+ * size: string,
+ * disabled: boolean}} props
  * @returns
  */
 const Textarea = (props) => {
-  const { value, onChange, enter, enterEvent, size } = props;
+  const { value, onChange, enter, enterEvent, size, disabled } = props;
   const keyPress = (e) => {
     if (e.key === "Enter" || e.keyCode === "13") {
       if (!e.shiftKey) {
@@ -26,6 +27,7 @@ const Textarea = (props) => {
   if (enter) {
     return (
       <textarea
+        disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
         wrap="hard"
         onKeyPress={(e) => keyPress(e)}
@@ -54,6 +56,7 @@ Textarea.propTypes = {
   maxHeight: PropTypes.string,
   maxWidth: PropTypes.string,
   size: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 Textarea.defaultProps = {
@@ -66,6 +69,7 @@ Textarea.defaultProps = {
   maxHeight: "100%",
   maxWidth: "100%",
   size: "medium",
+  disabled: false,
 };
 
 export default Textarea;

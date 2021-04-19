@@ -1,15 +1,36 @@
 .recent-message-template {
-    display: flex;
-    height: 95vh;
+    display: grid;
+    height: 93vh;
+    width: 95vw;
+    grid-template-columns: 1.2fr 3fr;
+    grid-column-gap: 20px;
 }
 
 .recent-message-template .sidebar {
-    width: 28%;
     height: 100%;
     padding-top: 20px;
 }
 
 .recent-message-template .frame {
-    width: 70%;
     height: 100%;
+    padding-top: 20px;
+}
+
+@media screen and (max-width:600px) {
+    .recent-message-template {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 10fr;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 89vw;
+    }
+
+    .recent-message-template .sidebar {
+        padding-top: 0px;
+    }
+
+    .recent-message-template .frame {
+        padding-top: 5px;
+    }
 }

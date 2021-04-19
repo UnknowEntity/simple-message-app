@@ -17,6 +17,10 @@ a.recent-message .avatar {
     margin-left: 3px;
 }
 
+a.recent-message .sb-avatar__text.online {
+    border: solid 3px rgb(3, 255, 3);
+}
+
 a.recent-message:hover {
     background-color: rgb(231, 230, 230);
 }
@@ -56,6 +60,6 @@ a.recent-message .last-message-content.unread {
 }
 
 a.recent-message .last-message-date {
-    color: #828282;
-    font-size: 10pt;
+    color: #555555;
+    font-size: 11pt;
 }

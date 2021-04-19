@@ -1,0 +1,198 @@
+circle {
+    fill: #B411A7;
+}
+
+#loading-bubbles g:not(:first-child) {
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    transform: translate(-10%, 50%);
+}
+
+
+
+#loading-bubbles g:first-child {
+    animation-name: first-bubble-frame;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    transform: translate(-10%, 50%);
+}
+
+#bubble-one {
+    animation-name: first-bubble;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+}
+
+#bubble-two {
+    animation-name: bubbles-merge-two;
+}
+
+#bubble-three {
+    animation-name: bubbles-merge-three;
+}
+
+#bubble-four {
+    animation-name: bubbles-merge-four;
+}
+
+#bubble-five {
+    animation-name: bubbles-merge-five;
+}
+
+@keyframes bubbles-merge-two {
+
+    0%,
+    10% {
+        transform: translate(-10%, 50%);
+    }
+
+    20%,
+    50% {
+        transform: translate(50%, 50%);
+    }
+
+    60% {
+        transform: translate(110%, 50%);
+    }
+
+    100% {
+        transform: translate(110%, 50%);
+    }
+}
+
+@keyframes bubbles-merge-three {
+
+    0%,
+    20% {
+        transform: translate(-10%, 50%);
+    }
+
+    30%,
+    60% {
+        transform: translate(50%, 50%);
+    }
+
+    70% {
+        transform: translate(110%, 50%);
+    }
+
+    100% {
+        transform: translate(110%, 50%);
+    }
+}
+
+@keyframes bubbles-merge-four {
+
+    0%,
+    30% {
+        transform: translate(-10%, 50%);
+    }
+
+    40%,
+    70% {
+        transform: translate(50%, 50%);
+    }
+
+    80% {
+        transform: translate(110%, 50%);
+    }
+
+    100% {
+        transform: translate(110%, 50%);
+    }
+}
+
+@keyframes bubbles-merge-five {
+
+    0%,
+    40% {
+        transform: translate(-10%, 50%);
+    }
+
+    50%,
+    80% {
+        transform: translate(50%, 50%);
+    }
+
+    90% {
+        transform: translate(110%, 50%);
+    }
+
+    100% {
+        transform: translate(110%, 50%);
+    }
+}
+
+@keyframes first-bubble-frame {
+
+    0% {
+        fill-opacity: 0;
+        transform: translate(-10%, 50%);
+    }
+
+    10%,
+    90% {
+        fill-opacity: 1;
+        transform: translate(50%, 50%);
+    }
+
+    100% {
+        fill-opacity: 0;
+        transform: translate(110%, 50%);
+    }
+}
+
+@keyframes first-bubble {
+
+    0%,
+    15% {
+        transform: scale(1);
+    }
+
+    20%,
+    25% {
+        transform: scale(1.2);
+    }
+
+    30%,
+    35% {
+        transform: scale(1.4);
+    }
+
+    40%,
+    45% {
+        transform: scale(1.6);
+    }
+
+    50% {
+        transform: scale(1.8);
+    }
+
+    55%,
+    60% {
+        transform: scale(1.6);
+    }
+
+    65%,
+    70% {
+        transform: scale(1.4);
+    }
+
+    75%,
+    80% {
+        transform: scale(1.2);
+    }
+
+    90%,
+    100% {
+        transform: scale(1);
+    }
+}

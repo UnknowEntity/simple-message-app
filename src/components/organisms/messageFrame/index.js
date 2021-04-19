@@ -9,11 +9,12 @@ import "./style.css";
  * @param {{
  * messageList:Array,
  * setMessageList:Function,
- * updateMessageList:Function}} props
+ * updateMessageList:Function,
+ * status:number}} props
  * @returns
  */
 const MessageFrame = (props) => {
-  const { messageList, setMessageList, updateMessageList } = props;
+  const { messageList, setMessageList, updateMessageList, status } = props;
   const [myMessage, setMyMessage] = useState("");
   const [myUnsendMessageIndex, setMyUnsendMessageIndex] = useState(0);
   const [isTyping, setTyping] = useState(false);
@@ -47,15 +48,19 @@ const MessageFrame = (props) => {
     ]);
     setMyMessage("");
     setMyUnsendMessageIndex(0);
-    updateMessageList(tempMessage);
+    updateMessageList(myMessage);
     setTyping(false);
   };
 
   return (
     <div className="message-frame">
-      <MessageView messageList={messageList} />
+      <MessageView messageList={messageList} empty={status === 2} />
       <Textarea
-        value={myMessage}
+        value={
+          status === 2
+            ? "input will be disable if you haven't selected a person to talk with"
+            : myMessage
+        }
         onChange={onChange}
         enter
         enterEvent={sendMessage}
@@ -63,6 +68,7 @@ const MessageFrame = (props) => {
         maxHeight="15vh"
         width="60%"
         maxWidth="60%"
+        disabled={status !== 1}
       />
     </div>
   );

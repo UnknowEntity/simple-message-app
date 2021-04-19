@@ -32,6 +32,9 @@ button {
     color: white;
 }
 
+button.straight {
+    border-radius: 0;
+}
 
 button:hover {
     background-color: rgba(var(--rgb), 0.7);

@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import SkeletonBox from "../../components/animations/skeletonBox";
 
 const TestPage = (prop) => {
-  const [message, setMessage] = useState("");
-  useEffect(() => {
-    fetch("http://localhost:3000/users/private", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setMessage(res.message);
-      });
-  }, []);
-
-  return <div>{message}</div>;
+  return (
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ marginRight: "15px" }}>
+        <SkeletonBox width="55px" height="55px" circle />
+      </div>
+      <div style={{ marginTop: "5px" }}>
+        <div style={{ marginBottom: "20px" }}>
+          <SkeletonBox width="150px" height="15px" rounded />
+        </div>
+        <div>
+          <SkeletonBox width="200px" height="15px" rounded />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TestPage;

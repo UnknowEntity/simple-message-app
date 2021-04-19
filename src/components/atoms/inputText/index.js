@@ -22,11 +22,23 @@ export const InputType = {
  * size: String
  * center: boolean
  * type: String
- * onChange: Function}} props
+ * onChange: Function
+ * isFocus:boolean
+ * selectwFocus:boolean}} props
  * @returns
  */
 const InputText = (props) => {
-  const { value, placeholder, id, size, center, type, onChange } = props;
+  const {
+    value,
+    placeholder,
+    id,
+    size,
+    center,
+    type,
+    onChange,
+    isFocus,
+    selectwFocus,
+  } = props;
   return (
     <input
       id={id}
@@ -35,6 +47,12 @@ const InputText = (props) => {
       value={value}
       className={`text ${size} ${center ? "center" : ""}`}
       onChange={(e) => onChange(e.target.value)}
+      autoFocus={isFocus}
+      onFocus={(e) => {
+        if (isFocus && selectwFocus) {
+          e.currentTarget.select();
+        }
+      }}
     />
   );
 };
@@ -46,7 +64,9 @@ InputText.defaultProps = {
   size: FontSize.SMALL,
   center: false,
   type: "text",
+  isFocus: false,
   onChange: () => {},
+  selectwFocus: false,
 };
 
 InputText.propTypes = {
@@ -55,6 +75,8 @@ InputText.propTypes = {
   value: PropTypes.string,
   center: PropTypes.bool,
   onChange: PropTypes.func,
+  isFocus: PropTypes.bool,
+  selectwFocus: PropTypes.bool,
 };
 
 export default InputText;

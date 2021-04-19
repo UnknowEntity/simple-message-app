@@ -11,14 +11,14 @@ export const MessageTypes = {
 
 /**
  *
- * @param {{content:string,isTyping:boolean, date: number, type: string, key:number}} props
+ * @param {{content:string,isTyping:boolean, date: any, type: string}} props
  * @returns
  */
 const MessageBox = (props) => {
-  const { content, isTyping, date, type, key } = props;
-  let message = isTyping ? TypingAnimation({ height: 10 }) : content;
+  const { content, isTyping, date, type } = props;
+  let message = isTyping ? <TypingAnimation height={10} /> : content;
   return (
-    <div className={`message-box ${type}`} key={key}>
+    <div className={`message-box ${type}`}>
       <div className={`message-content ${type}`}>{message}</div>
       <div className={`message-date ${type}`}>
         {isTyping ? "" : Moment(date).format("h:mm:ss A, dddd D/M/YYYY")}
@@ -30,9 +30,8 @@ const MessageBox = (props) => {
 MessageBox.propTypes = {
   content: PropTypes.string,
   isTyping: PropTypes.bool,
-  date: PropTypes.number,
+  date: PropTypes.any,
   type: PropTypes.string,
-  key: PropTypes.number,
 };
 
 MessageBox.defaultProps = {

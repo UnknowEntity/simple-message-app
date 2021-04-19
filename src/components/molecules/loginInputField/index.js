@@ -1,8 +1,16 @@
 import React from "react";
 import InputText, { FontSize, InputType } from "../../atoms/inputText";
+import Warning from "../../atoms/warning";
 
 const LoginInputField = (props) => {
-  const { username, password, setUsername, setPassword } = props;
+  const {
+    username,
+    password,
+    warningMessage,
+    failedLogin,
+    setUsername,
+    setPassword,
+  } = props;
   return (
     <>
       <InputText
@@ -12,6 +20,7 @@ const LoginInputField = (props) => {
         size={FontSize.LARGE}
         center
         onChange={setUsername}
+        autofo
       />
       <InputText
         id="password"
@@ -22,6 +31,7 @@ const LoginInputField = (props) => {
         type={InputType.PASSWORD}
         onChange={setPassword}
       />
+      <Warning message={warningMessage} isShow={failedLogin} />
     </>
   );
 };

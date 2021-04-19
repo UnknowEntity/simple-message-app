@@ -23,13 +23,16 @@ export const ButtonColor = {
  * onClick: Function,
  * children: React.Node,
  * disabled: boolean
- * border: boolean}} props
+ * border: boolean
+ * straight: boolean}} props
  * @returns
  */
 const Button = (props) => {
-  const { color, onClick, children, size, disabled, border } = props;
+  const { color, onClick, children, size, disabled, border, straight } = props;
   let disable = disabled ? "disabled" : "";
-  const classProps = `${color} ${size} ${disable} ${border ? "border" : ""}`;
+  const classProps = `${color} ${size} ${disable} ${border ? "border" : ""} ${
+    straight ? "straight" : ""
+  }`;
 
   return (
     <button
@@ -49,12 +52,14 @@ Button.defaultProps = {
   onClick: () => {},
   disabled: false,
   border: false,
+  straight: false,
 };
 
 Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   border: PropTypes.bool,
+  straight: PropTypes.bool,
 };
 
 export default Button;

@@ -5,14 +5,14 @@ import LinkModified from "../../atoms/links";
 
 /**
  *
- * @param {{onRegister:Function}} props
+ * @param {{onRegister:Function, isClicked: boolean}} props
  * @returns
  */
 const RegisterButtonGroup = (props) => {
-  const { onRegister } = props;
+  const { onRegister, isClicked } = props;
   return (
     <>
-      <Button size={ButtonSize.LARGE} onClick={onRegister}>
+      <Button size={ButtonSize.LARGE} onClick={onRegister} disabled={isClicked}>
         Register
       </Button>
       <div>Already have an account? Then</div>
@@ -25,6 +25,7 @@ const RegisterButtonGroup = (props) => {
 
 RegisterButtonGroup.propTypes = {
   onRegister: PropTypes.func,
+  isClicked: PropTypes.bool,
 };
 
 export default RegisterButtonGroup;

@@ -26,7 +26,10 @@ const App = () => {
         <Route exact path="/test">
           <TestPage />
         </Route>
-        <Route path="/message">
+        <Route path="/message/:id">
+          <RecentMessagePage />
+        </Route>
+        <Route exact path="/message">
           <RecentMessagePage />
         </Route>
       </Switch>

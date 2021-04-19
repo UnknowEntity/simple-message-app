@@ -1,0 +1,16 @@
+.warning {
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.warning.low {
+    color: lightslategray;
+}
+
+.warning.medium {
+    color: yellow;
+}
+
+.warning.high {
+    color: rgb(255, 81, 50);
+}

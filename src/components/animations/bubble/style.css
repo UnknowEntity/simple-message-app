@@ -1,66 +1,51 @@
-#bubbles circle {
-    transition: transform 1s ease;
-}
-
-#bubble-large {
-    animation-name: bloom-large;
+#bubbles g {
     animation-timing-function: ease;
-    animation-duration: 2s;
-}
-
-
-
-#bubble-small {
-    animation-name: bloom-small;
-    animation-timing-function: ease;
-    animation-duration: 2s;
-}
-
-#bubble-medium {
-    animation-name: bubbling;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
     animation-duration: 1s;
-    animation-delay: 3s;
-    animation-direction: alternate;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
-@keyframes bubbling {
+#bubble-large-fr {
+    animation-name: bubble-up;
+}
+
+
+
+#bubble-small-fr {
+    animation-name: bubble-down;
+}
+
+#bubble-medium-fr {
+    animation-name: bubble-side;
+}
+
+@keyframes bubble-up {
     from {
-        transform: translateY(-10%);
+        transform: translate(225px, 255px);
     }
 
     to {
-        transform: translateY(10%);
+        transform: translate(132px, 100px);
     }
 }
 
-@keyframes bloom-small {
+@keyframes bubble-down {
     from {
-        transform: scale(0, 0);
+        transform: translate(225px, 255px);
     }
 
     to {
-        transform: scale(1, 1);
+        transform: translate(230px, 353px);
     }
 }
 
 
-@keyframes bloom-large {
+@keyframes bubble-side {
     from {
-        transform: scale(0, 0);
+        transform: translate(225px, 225px);
     }
 
     to {
-        transform: scale(1, 1);
+        transform: translate(328px, 218px);
     }
-}
-
-#bubble-large:hover {
-    transform: translateY(10%);
-}
-
-
-#bubble-small:hover {
-    transform: translateX(-10%);
 }

@@ -20,32 +20,26 @@ const BubbleAnimation = (props) => {
     >
       <g id="bubble-animation">
         <g id="bubbles">
-          <g transform="translate(132,100)">
+          <g id="bubble-large-fr" transform="translate(225,225)">
             <circle
               id="bubble-large"
               r="70"
               fill="white"
               stroke="#B411A7"
-              stroke-width="10"
+              strokeWidth="10"
               fillOpacity="0"
             />
           </g>
-          <g transform="translate(328,218)">
-            <circle
-              cX="328"
-              cY="218"
-              id="bubble-medium"
-              r="60"
-              fill="#B411A7"
-            />
+          <g id="bubble-medium-fr" transform="translate(225,225)">
+            <circle id="bubble-medium" r="60" fill="#B411A7" />
           </g>
-          <g transform="translate(230,353)">
+          <g id="bubble-small-fr" transform="translate(225,225)">
             <circle
               id="bubble-small"
               r="50"
               fill="white"
               stroke="#B411A7"
-              stroke-width="30"
+              strokeWidth="30"
               fillOpacity="0"
             />
           </g>
