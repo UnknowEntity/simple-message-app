@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import MessageBox from "../../atoms/messageBox";
 import "./style.css";
@@ -11,6 +13,15 @@ import LoadingBubbles from "../../animations/loadingBubbles";
  */
 const MessageView = (props) => {
   const { messageList, empty } = props;
+  const [defaultState, setDefaultState] = useState(true);
+
+  useEffect(() => {
+    if (messageList.length !== 0 && defaultState) {
+      let scroll = document.getElementsByClassName("message-view")[0];
+      scroll.scrollTo(0, scroll.scrollHeight - scroll.clientHeight);
+    }
+  }, [messageList, defaultState]);
+
   let messageBoxContent = (
     <div className="message-view-default">
       <LoadingBubbles height={100} />
@@ -37,9 +48,33 @@ const MessageView = (props) => {
     );
   }
 
+  const scrollEvent = () => {
+    let scroll = document.getElementsByClassName("message-view")[0];
+    let scroPos = scroll.scrollTop;
+    if (scroPos !== scroll.scrollHeight - scroll.clientHeight && defaultState) {
+      setDefaultState(false);
+    } else if (scroPos === scroll.scrollHeight - scroll.clientHeight) {
+      setDefaultState(true);
+    }
+  };
+
+  const toBottom = () => {
+    let scroll = document.getElementsByClassName("message-view")[0];
+    scroll.scrollTo(0, scroll.scrollHeight - scroll.clientHeight);
+  };
+
   return (
-    <div className={`message-view ${messageList.length !== 0 ? "active" : ""}`}>
+    <div
+      className={`message-view ${messageList.length !== 0 ? "active" : ""}`}
+      onScroll={() => scrollEvent()}
+    >
       {messageBoxContent}
+      <button
+        className={`btn-to-bottom ${!defaultState ? "show" : ""}`}
+        onClick={() => toBottom()}
+      >
+        <FontAwesomeIcon icon={faChevronDown} />
+      </button>
     </div>
   );
 };

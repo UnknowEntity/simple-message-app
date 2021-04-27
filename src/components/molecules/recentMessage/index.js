@@ -14,7 +14,8 @@ import "./style.css";
  * sender:boolean,
  * date:number,
  * choose: boolean,
- * searchKeyWord:string}} props
+ * searchKeyWord:string
+ * online:boolean}} props
  * @returns
  */
 const RecentMessage = (props) => {
@@ -27,6 +28,7 @@ const RecentMessage = (props) => {
     choose,
     unread,
     searchKeyWord,
+    online,
   } = props;
   let isHide =
     name.toLowerCase().search(searchKeyWord.toLowerCase()) === -1 ? "hide" : "";
@@ -40,7 +42,7 @@ const RecentMessage = (props) => {
         size="50"
         color={Avatar.getRandomColor("sitebase", ["red", "green", "blue"])}
         round={true}
-        className="avatar"
+        className={`avatar ${online ? "online" : ""}`}
       />
       <div>
         <div className="name">{name}</div>
@@ -61,6 +63,7 @@ const RecentMessage = (props) => {
 
 RecentMessage.defaultProps = {
   choose: false,
+  online: false,
 };
 
 export default RecentMessage;

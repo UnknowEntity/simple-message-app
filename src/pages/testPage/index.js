@@ -1,21 +1,17 @@
 import React from "react";
-import SkeletonBox from "../../components/animations/skeletonBox";
+import Avatar from "react-avatar";
 
 const TestPage = (prop) => {
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <div style={{ marginRight: "15px" }}>
-        <SkeletonBox width="55px" height="55px" circle />
-      </div>
-      <div style={{ marginTop: "5px" }}>
-        <div style={{ marginBottom: "20px" }}>
-          <SkeletonBox width="150px" height="15px" rounded />
-        </div>
-        <div>
-          <SkeletonBox width="200px" height="15px" rounded />
-        </div>
-      </div>
-    </div>
+    <a className="recent-message" href="/">
+      <Avatar
+        name={"john jones"}
+        size="50"
+        color={Avatar.getRandomColor("sitebase", ["red", "green", "blue"])}
+        round={true}
+        className="avatar online"
+      />
+    </a>
   );
 };
 

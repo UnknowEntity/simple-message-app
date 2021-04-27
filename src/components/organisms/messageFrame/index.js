@@ -10,11 +10,20 @@ import "./style.css";
  * messageList:Array,
  * setMessageList:Function,
  * updateMessageList:Function,
- * status:number}} props
+ * status:number,
+ * emitIsTyping:Function,
+ * emitStopTyping:Function}} props
  * @returns
  */
 const MessageFrame = (props) => {
-  const { messageList, setMessageList, updateMessageList, status } = props;
+  const {
+    messageList,
+    setMessageList,
+    updateMessageList,
+    status,
+    emitIsTyping,
+    emitStopTyping,
+  } = props;
   const [myMessage, setMyMessage] = useState("");
   const [myUnsendMessageIndex, setMyUnsendMessageIndex] = useState(0);
   const [isTyping, setTyping] = useState(false);
@@ -26,18 +35,21 @@ const MessageFrame = (props) => {
       setTyping(true);
       setMyUnsendMessageIndex(messageList.length);
       setMessageList([...messageList, { isTyping: true, type: "me" }]);
+      emitIsTyping();
     } else if (value.length === 0 && isTyping !== false) {
       setTyping(false);
       setMessageList([
         ...messageList.slice(0, myUnsendMessageIndex),
         ...messageList.slice(myUnsendMessageIndex + 1),
       ]);
+      emitStopTyping();
     }
   };
   const sendMessage = (e) => {
+    let date = Date.now();
     let tempMessage = {
       content: myMessage,
-      date: Date.now(),
+      date,
       type: "me",
       isTyping: false,
     };
@@ -48,7 +60,7 @@ const MessageFrame = (props) => {
     ]);
     setMyMessage("");
     setMyUnsendMessageIndex(0);
-    updateMessageList(myMessage);
+    updateMessageList(myMessage, date);
     setTyping(false);
   };
 
